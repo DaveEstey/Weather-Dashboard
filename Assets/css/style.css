@@ -5,3 +5,14 @@
 #weatherHistory{
   padding-right: 5rem;
 }
+
+#weatherOutput{
+  display: flex;
+}
+
+article{
+  background-color: gray;
+  color: white;
+  padding: 25px;
+
+}

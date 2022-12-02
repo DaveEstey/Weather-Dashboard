@@ -3,17 +3,19 @@ var inputBtn = document.querySelector("#getInputBtn")
 var inputText = document.querySelector("#getInputText")
 
 function makeWeather(weekForecast) {
+    var currWeatherEl = document.getElementById("currentWeather")
      var currWeather = document.createElement("article");
         currWeather.setAttribute("class", "currForecast");
-        currWeather.innerHTML = ("day/time:"+weekForecast.list[0].dt_txt+ "\n temp:" + weekForecast.list[0].main.temp + "\n Wind speed: " +weekForecast.list[0].wind.speed)     
+        currWeather.innerHTML = ("Day/Time:"+ weekForecast.list[0].dt_txt+ "<br> temp:" + weekForecast.list[0].main.temp + "<br> Wind speed: " +weekForecast.list[0].wind.speed)     
+        currWeatherEl.appendChild(currWeather);
+        
         var weatherEl = document.querySelector("#weatherOutput")
             weatherEl.innerHTML = "";
        
     for (var i = 8; i < weekForecast.list.length; i = i + 8) {
         var weekWeather = document.createElement("article") 
             weekWeather.setAttribute("class", "forecast"+ i); 
-            console.log("WW check"+ weekWeather)
-            weekWeather.innerHTML = ("day/time:"+weekForecast.list[i].dt_txt+ "\n temp:" + weekForecast.list[i].main.temp + "\n Wind speed: " +weekForecast.list[i].wind.speed)
+            weekWeather.innerHTML = ("Day/Time: "+weekForecast.list[i].dt_txt+ "<br> temp: " + weekForecast.list[i].main.temp + "<br> Wind speed: " +weekForecast.list[i].wind.speed)
             weatherEl.appendChild(weekWeather);
 
     }
@@ -33,7 +35,6 @@ function createFetch() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             makeWeather(data);
         })
         .catch(function () {
