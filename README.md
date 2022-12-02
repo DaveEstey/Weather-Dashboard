@@ -10,4 +10,4 @@ N/A
 ## Usage
 
 Writing into the text box and hitting the search button will bring up the current weather for that location as well as showing you the weather for the rest of the week.
-REPO: https://github.com/DaveEstey/Weather-Dashboard  DEPOLYMENT: https://daveestey.github.io/Weather-Dashboard/
+REPO: https://github.com/DaveEstey/Weather-Dashboard  DEPLOYMENT: https://daveestey.github.io/Weather-Dashboard/
