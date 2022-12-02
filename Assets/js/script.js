@@ -4,15 +4,16 @@ var inputText = document.querySelector("#getInputText")
 
 function makeWeather(weekForecast) {
      var currWeather = document.createElement("article");
-        currWeather.setAttribute("class", "currForecast");      
+        currWeather.setAttribute("class", "currForecast");
+        currWeather.innerHTML = ("day/time:"+weekForecast.list[0].dt_txt+ "\n temp:" + weekForecast.list[0].main.temp + "\n Wind speed: " +weekForecast.list[0].wind.speed)     
         var weatherEl = document.querySelector("#weatherOutput")
             weatherEl.innerHTML = "";
        
-    for (var i = 0; i < weekForecast.list.length; i = i + 8) {
+    for (var i = 8; i < weekForecast.list.length; i = i + 8) {
         var weekWeather = document.createElement("article") 
             weekWeather.setAttribute("class", "forecast"+ i); 
             console.log("WW check"+ weekWeather)
-            weekWeather.innerHTML = (weekForecast.forEach(list.weather));
+            weekWeather.innerHTML = ("day/time:"+weekForecast.list[i].dt_txt+ "\n temp:" + weekForecast.list[i].main.temp + "\n Wind speed: " +weekForecast.list[i].wind.speed)
             weatherEl.appendChild(weekWeather);
 
     }
