@@ -2,18 +2,26 @@ url = "http://api.openweathermap.org/data/2.5/forecast?appid=d8fc6379947058620cb
 var inputBtn = document.querySelector("#getInputBtn")
 var inputText = document.querySelector("#getInputText")
 
-/* function makeWeather(){
-var weekWeather = document.createElement("article");
-weekWeather.setAttribute("class", "forecast");
-var currWeather = document.createElement("article");
-currWeather.setAttribute("class", "forecast");
+function makeWeather(weekForecast) {
+     var currWeather = document.createElement("article");
+        currWeather.setAttribute("class", "currForecast");      
+        var weatherEl = document.querySelector("#weatherOutput")
+            weatherEl.innerHTML = "";
+       
+    for (var i = 0; i < weekForecast.list.length; i = i + 8) {
+        var weekWeather = document.createElement("article") 
+            weekWeather.setAttribute("class", "forecast"+ i); 
+            console.log("WW check"+ weekWeather)
+            weekWeather.innerHTML = (weekForecast.forEach(list.weather));
+            weatherEl.appendChild(weekWeather);
 
-weekWeather.appendChild()
-} */
+    }
+
+}
 
 function createFetch() {
     var userInput = inputText.value;
-    userInput = userInput.replace(/ /g, '')
+    userInput = userInput.replace(/ /g, '-')
 
     inputUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&appid=d8fc6379947058620cb310f2db57deb3"
     fetch(inputUrl)
@@ -25,18 +33,15 @@ function createFetch() {
         })
         .then(function (data) {
             console.log(data);
-         //   makeWeather();
+            makeWeather(data);
         })
-        .catch (function () {
-    inputText.value = "";
-    alert('Unable to connect to GitHub');
-});
+        .catch(function () {
+            inputText.value = "";
+            alert('Unable to connect to GitHub');
+        });
 
 }
 
-var weatherForcast = document.querySelectorAll(".forecast")
-weatherForcast.forEach(function(){
 
-});
 
 inputBtn.addEventListener("click", createFetch);
