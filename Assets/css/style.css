@@ -14,5 +14,5 @@ article{
   background-color: gray;
   color: white;
   padding: 25px;
-
+  inline-size: fit-content;
 }
