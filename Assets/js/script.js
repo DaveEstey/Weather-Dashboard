@@ -23,7 +23,7 @@ function saveWeather(saveWeather) {
     newHistory.addEventListener("click", function (event) {
         createFetch(event.target.id)
     })
-    
+
 
     
 
@@ -49,7 +49,7 @@ function getHistory() {
             
         }
         historyUl.addEventListener("click", function () {
-            if (!historyUl.querySelector(`#${historyBtn}`)) historyUl.append(historyBtn);
+            if (!historyUl.querySelector(`#${data}`)) historyUl.append(historyBtn);
 
         });
     }
