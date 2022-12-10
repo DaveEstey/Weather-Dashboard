@@ -23,6 +23,7 @@ function saveWeather(saveWeather) {
     newHistory.addEventListener("click", function (event) {
         createFetch(event.target.id)
     })
+    
 
     
 
@@ -41,8 +42,11 @@ function getHistory() {
         var i = keys.length;
 
         while (i--) {
-            var data = JSON.parse(localStorage.getItem(keys[i]))
+            if (localStorage.getItem(keys[i]) != "") {
+            var data =(localStorage.getItem(keys[i]))
             saveWeather(data)
+            }
+            
         }
         historyUl.addEventListener("click", function () {
             if (!historyUl.querySelector(`#${historyBtn}`)) historyUl.append(historyBtn);
