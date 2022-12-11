@@ -65,7 +65,7 @@ function makeWeather(weekForecast) {
     currWeather.setAttribute("class", "currForecast");
     console.log(weekForecast)
     currentWeatherTitle.innerHTML = (weekForecast.city.name + ", " + weekForecast.city.country);
-    currWeather.innerHTML = (`<img src= http://openweathermap.org/img/wn/${weekForecast.list[0].weather[0].icon + "@2x.png"} ></img>` + "<br> Day/Time: " + weekForecast.list[0].dt_txt + "<br> Temp: " + weekForecast.list[0].main.temp + "<br> Wind speed: " + weekForecast.list[0].wind.speed)
+    currWeather.innerHTML = (`<img src= https://openweathermap.org/img/wn/${weekForecast.list[0].weather[0].icon + "@2x.png"} ></img>` + "<br> Day/Time: " + weekForecast.list[0].dt_txt + "<br> Temp: " + weekForecast.list[0].main.temp + "<br> Wind speed: " + weekForecast.list[0].wind.speed)
     currWeatherEl.appendChild(currentWeatherTitle);
     currWeatherEl.appendChild(currWeather);
 
@@ -78,7 +78,7 @@ function makeWeather(weekForecast) {
         var weekWeather = document.createElement("article")
         weekWeather.setAttribute("class", "forecast");
         //var icon = createIcon(weekForecast.list[i].weather[0].icon)
-        weekWeather.innerHTML = (`<img src= http://openweathermap.org/img/wn/${weekForecast.list[i].weather[0].icon + "@2x.png"} ></img>` + "<br>Day/Time: " + weekForecast.list[i].dt_txt + "<br> Temp: " + weekForecast.list[i].main.temp + "<br> Wind speed: " + weekForecast.list[i].wind.speed)
+        weekWeather.innerHTML = (`<img src= https://openweathermap.org/img/wn/${weekForecast.list[i].weather[0].icon + "@2x.png"} ></img>` + "<br>Day/Time: " + weekForecast.list[i].dt_txt + "<br> Temp: " + weekForecast.list[i].main.temp + "<br> Wind speed: " + weekForecast.list[i].wind.speed)
         weatherEl.append(weekWeather);
 
     }
@@ -87,7 +87,7 @@ function makeWeather(weekForecast) {
 function createFetch(userInput) {
 
 
-    inputUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&appid=d8fc6379947058620cb310f2db57deb3"
+    inputUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&appid=d8fc6379947058620cb310f2db57deb3"
     fetch(inputUrl)
         .then(function (response) {
             if (!response.ok) {
